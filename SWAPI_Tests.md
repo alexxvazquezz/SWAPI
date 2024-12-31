@@ -18,7 +18,7 @@ Al intentar acceder al endpoint `api/people/99` recibo un error: 
 }
 ```
 Segun las lista de personajes, hay un total de 82 records y 9 paginas. Usando los parameters page=9&limit=10, me da los ultimos resultados y el ultimo uid=83
-![[Screenshot From 2024-12-31 11-56-40.png]]
+![Screenshot From 2024-12-31 11-56-40](https://github.com/user-attachments/assets/8af4e44c-3e10-42bd-836d-85406ce9cf60)
 
 
 **C. Numero Maxima de Personas**
@@ -26,10 +26,8 @@ End point: `/api/people
 `
 El numero maximo lo obtengo de 2 formas, la primera es usando la propiedad `total_records` que viene en el body del endpoint `/api/people` y la otra es obtendiendo el length del array dentro de la propiedad “results” las dos tienen un valor de 82.
 
-![[Screenshot From 2024-12-31 12-02-55.png]]
-
-![[Screenshot From 2024-12-31 12-03-55.png]]
-
+![Screenshot From 2024-12-31 12-02-55](https://github.com/user-attachments/assets/bbc5ef35-daa9-4d60-aa59-9455d2691de0)
+![Screenshot From 2024-12-31 12-03-55](https://github.com/user-attachments/assets/74d8b04d-6234-4ca5-ad15-8165aca987da)
 
 D. Propiedades Planeta con ID 27
 End point: `/api/planets/27
@@ -51,10 +49,11 @@ En este caso, se selecciono un id de planeta para obtener sus propiedades.
 	"url": "https://www.swapi.tech/api/planets/27"
 }
 ```
-![[Screenshot From 2024-12-31 12-09-11.png]]
+
 E. Schema de Recursos
 Endpoint Species: /api/species/id
 Endpoint Vehicles: /api/vehicles/id
+![Screenshot From 2024-12-31 12-09-11](https://github.com/user-attachments/assets/5d5ebc51-9546-469b-b826-1d597d168f2f)
 
 ### Species
 
@@ -116,9 +115,11 @@ Observaciones:
 * El campo cost_in_credits llama la atencion por vovler un 'unknown', hay que tomar en cuenta esto para crear tests. 
 
 Response Body Species:
-![[Screenshot From 2024-12-31 12-14-10.png]]
+![Screenshot From 2024-12-31 12-14-10](https://github.com/user-attachments/assets/a657ff99-e5d0-43da-9068-2428eb09a6f5)
+
 Response Body Vehicle:
-![[Screenshot From 2024-12-31 12-14-26.png]]
+![Screenshot From 2024-12-31 12-14-26](https://github.com/user-attachments/assets/dc03212a-7b13-415a-b719-6ddd106c2139)
+
 
 f. ID del Film
 End point: `/api/films/`
@@ -133,7 +134,7 @@ const filmId = jsonData.result[0].properties.episode_id;
 
 console.log('Film id: ', filmId);
 ```
-![[Screenshot From 2024-12-31 12-21-37.png]]
+![Screenshot From 2024-12-31 12-21-37](https://github.com/user-attachments/assets/950e3a76-b890-41a4-b080-9a496bfaa5bd)
 
 g. Consulta en Formato Wookiee
 En este escenario el encoding vuelve en un string del mismo json object. Para poder visualizar el nombre se tuvo que parsar a json dos veces. Abajo esta el script:
@@ -156,7 +157,7 @@ let wookieeName = wookieeBody.akrcooakworcaoahwoc.whrascwo;
 
 console.log("Wookie name:", wookieeName);
 ```
-![[Screenshot From 2024-12-31 12-32-04.png]]
+![Screenshot From 2024-12-31 12-32-04](https://github.com/user-attachments/assets/4aa9a0d3-039a-4fb1-8280-2584f39b3912)
 
 ## Preguntas Adicionales
 1. Para automatizar el api, aprovecharia el runner de postman. Ya que se esta utilizando esta herramienta. Pero, prefereria centralizar todo, los tests de UI y API, usando cypress. 

@@ -1,0 +1,63 @@
+name: CI/CD Pipeline for Payment UI Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Cypress and dependencies
+      run: npm ci
+
+    - name: Run Cypress Tests
+      uses: cypress-io/github-action@v5
+      with:
+        config-file: cypress.json
+        record: false
+        browser: chrome
+
+    - name: Generate Cypress Report
+      run: npm run generate-report
+      env:
+        CI: true
+
+  deploy-qa:
+    needs: ui-tests
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to QA
+      run: |
+        # Replace with deployment commands
+
+  deploy-prod:
+    needs: deploy-qa
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Production
+      run: |
+        # Replace with deployment commands

@@ -3,10 +3,10 @@ name: CI/CD Pipeline for Payment UI Tests
 on:
   push:
     branches:
-      - main
+      - qa
   pull_request:
     branches:
-      - main
+      - qa
 
 jobs:
   ui-tests:

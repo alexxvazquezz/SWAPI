@@ -2,8 +2,8 @@ A. Naves
 End point: /api/starships
 
 Aca no hubo ningun inconveniente. 
+![Screenshot From 2024-12-31 11-55-15](https://github.com/user-attachments/assets/58f6f386-e6ab-4d29-ae69-2dd22a008690)
 
-![[Screenshot From 2024-12-31 11-55-15.png]]
 
 **B. Personaje con id 99.**
 End point: `api/people/99`
